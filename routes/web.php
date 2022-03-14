@@ -23,7 +23,7 @@ Route::POST("users",[UsersController::class, 'getData']);
 
 Route::view('login', 'users');
 
-Route::view('home', 'home');
+Route::view('home', 'home') -> middleware('ProtectedPage');
 
 Route::view('noaccess', 'noaccess');
 
