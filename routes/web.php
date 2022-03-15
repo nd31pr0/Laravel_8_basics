@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\UsersController;
+Use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,9 @@ Route::get('/', function () {
     return redirect("about");
 });
 
-Route::POST("users",[UsersController::class, 'getData']);
 
-Route::view('login', 'users');
+
+Route::view('login', 'user');
 
 Route::view('home', 'home') -> middleware('ProtectedPage');
 
