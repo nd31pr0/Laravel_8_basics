@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\UserController;
-
+Use App\Http\Controllers\UserAuth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +21,24 @@ Route::get('/', function () {
 
 
 
-Route::view('user', 'user');
+Route::view('profile', 'profile');
 
-Route::view('home', 'home') -> middleware('ProtectedPage');
+Route::post('user', [UserAuth::class,'userlogin']);
 
-Route::view('noaccess', 'noaccess');
+//Route::view('login', 'login');
 
-Route::GET('users', [UserController::class, 'testRequest']);
+Route::get('/login', function () {
+    if(session()->has('user'))
+    {
+        return redirect('profile');
+    }
+    return view('login');
+});
+
+Route::get('/logout', function () {
+    if(session()->has('user'))
+    {
+        session()->pull('user');
+    }
+    return redirect('login');
+});
