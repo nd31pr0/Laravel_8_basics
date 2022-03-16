@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 
 
-Route::view('login', 'user');
+Route::view('user', 'user');
 
 Route::view('home', 'home') -> middleware('ProtectedPage');
 
 Route::view('noaccess', 'noaccess');
 
-Route::view('about', 'about');
+Route::GET('users', [UserController::class, 'testRequest']);
