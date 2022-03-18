@@ -23,4 +23,4 @@ Route::view('profile', 'profile');
 //Route::post('user', [UserAuth::class,'userlogin']);
 
 
-Route::get('users', [UserController::class,'getData']);
+Route::get('users', [UserController::class,'index']);
