@@ -14,31 +14,13 @@ Use App\Http\Controllers\UserAuth;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return redirect("about");
-});
+//
 
 
 
 Route::view('profile', 'profile');
 
-Route::post('user', [UserAuth::class,'userlogin']);
+//Route::post('user', [UserAuth::class,'userlogin']);
 
-//Route::view('login', 'login');
 
-Route::get('/login', function () {
-    if(session()->has('user'))
-    {
-        return redirect('profile');
-    }
-    return view('login');
-});
-
-Route::get('/logout', function () {
-    if(session()->has('user'))
-    {
-        session()->pull('user');
-    }
-    return redirect('login');
-});
+Route::get('users', [UserController::class,'index']);
