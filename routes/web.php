@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\UserController;
 Use App\Http\Controllers\UserAuth;
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +22,21 @@ Route::view('profile', 'profile');
 //Route::post('user', [UserAuth::class,'userlogin']);
 
 
-Route::get('users', [UserController::class,'index']);
+Route::view('login', 'login');
+Route::POST('user', [UserAuth::class, 'userlogin']);
+Route::view('profile', 'profile');
+
+Route::get('/logout', function(){
+    if(session()->has('user'))
+    {
+        session()->pull('user');
+    }
+    return redirect('login');
+});
+Route::get('/login', function(){
+    if(session()->has('user'))
+    {
+        session()->pull('user');
+    }
+    return redirect('login');
+});
