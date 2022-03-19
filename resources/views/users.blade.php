@@ -1,14 +1,18 @@
+<h1>user List</h1>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Profile photo</td>
+    </tr>
+    @foreach($collection as $item)
 
-<h1>User Login</h1>
+    <td>{{$item['id']}}</td>
+    <td>{{$item['first_name'] }}</td>
+    <td>{{$item['email'] }}</td>
+    <td>img src={{ item['avatar'] }}</td>
 
-<form action="users" method="POST">
-    @csrf
-    <input type="text" name="username" Placeholder="enter user id"/><br>
-    <span style="color:red">@error("username"){{ $message }} @enderror</span>
-    <br>
-    <input type="password" name="Userpassword" Placeholder="enter user password"/><br>
-    <span style="color:red">@error("Userpassword"){{ $message }} @enderror</span>
-   
-    <br>
-    <button type="submit">Login</button>
-</form>
+    @endforeach
+
+</table>

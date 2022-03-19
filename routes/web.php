@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\UsersController;
-
+Use App\Http\Controllers\UserAuth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +13,30 @@ Use App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return redirect("about");
+//
+
+
+
+Route::view('profile', 'profile');
+
+//Route::post('user', [UserAuth::class,'userlogin']);
+
+
+Route::view('login', 'login');
+Route::POST('user', [UserAuth::class, 'userlogin']);
+Route::view('profile', 'profile');
+
+Route::get('/logout', function(){
+    if(session()->has('user'))
+    {
+        session()->pull('user');
+    }
+    return redirect('login');
 });
-
-Route::POST("users",[UsersController::class, 'getData']);
-
-Route::view('login', 'users');
-
-Route::view('home', 'home') -> middleware('ProtectedPage');
-
-Route::view('noaccess', 'noaccess');
-
-Route::view('about', 'about');
+Route::get('/login', function(){
+    if(session()->has('user'))
+    {
+        session()->pull('user');
+    }
+    return redirect('login');
+});
