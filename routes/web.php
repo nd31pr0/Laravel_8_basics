@@ -17,12 +17,11 @@ Use App\Http\Controllers\UserAuth;
 
 
 
-Route::view('profile', 'profile');
 
 //Route::post('user', [UserAuth::class,'userlogin']);
 
 
-Route::view('login', 'login');
+//Route::view('login', 'login');
 Route::POST('user', [UserAuth::class, 'userlogin']);
 Route::view('profile', 'profile');
 
@@ -36,7 +35,7 @@ Route::get('/logout', function(){
 Route::get('/login', function(){
     if(session()->has('user'))
     {
-        session()->pull('user');
+        return redirect('profile');
     }
-    return redirect('login');
+    return view('login');
 });
