@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\AddMember;
+Use App\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +19,9 @@ Use App\Http\Controllers\AddMember;
 //Route::view('login', 'login');
 
 
-Route::view('add', 'add');
-Route::post('addmember', [AddMember::class,'add']);
+Route::view('profile', 'profile');
+
+Route::get('/profile/{lang}', function($lang){
+    App::setlocale($lang);
+    return view('profile');
+});
