@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\UserController;
-Use App\Http\Controllers\UserAuth;
+Use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +17,7 @@ Use App\Http\Controllers\UserAuth;
 
 
 
-Route::view('profile', 'profile');
-
-//Route::post('user', [UserAuth::class,'userlogin']);
+//Route::view('list', 'list');
 
 
-Route::get('users', [UserController::class,'getData']);
+Route::get('list', [MemberController::class,'show']);
