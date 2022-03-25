@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\MemberController;
+Use App\Http\Controllers\MembersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +20,4 @@ Use App\Http\Controllers\MemberController;
 //Route::view('list', 'list');
 
 
-Route::get('list', [MemberController::class,'show']);
+Route::get('list', [MembersController::class,'show']);

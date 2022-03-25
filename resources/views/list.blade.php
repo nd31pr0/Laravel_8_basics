@@ -15,5 +15,14 @@
             <td>{{ $member['Address'] }}</td>
         </tr>
     @endforeach
-    <
+    
 </table>
+
+<span>
+    {{ $members->links() }}
+</span>
+<style>
+    .w-5{
+        display: none
+    }    
+</style>
