@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\MembersController;
+Use App\Http\Controllers\MemberController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ Use App\Http\Controllers\MembersController;
 
 
 
-//Route::view('list', 'list');
+Route::view('add', 'addmember');
 
 
-Route::get('list', [MembersController::class,'show']);
+Route::post('add', [MemberController::class,'addData']);
