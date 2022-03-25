@@ -20,9 +20,23 @@ class MemberController extends Controller
         $member->save();
         return redirect('add');*/
     }
-    function delete($id){
-        $data=Member::find($id);
+    function delete($Id){
+        $data=Member::find($Id);
         $data->delete();
+        return redirect('list');
+    }
+    function showData($id){
+        $data= Member::find($id);
+        return view('edit', ['data' => $data]);
+    }
+    function update(Request $req)
+    {
+        $data=Member::find($req->Id);
+        $data->Id=$req->Id;
+        $data->Name=$req->Name;
+        $data->email=$req->email;
+        $data->Address=$req->Address;
+        $data->save();
         return redirect('list');
     }
 }
