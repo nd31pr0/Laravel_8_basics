@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
-
+use Illuminate\Support\Facades\DB;
 class MembersController extends Controller
 {
     //
-    function show(){
-        $data = Member::paginate(5);
-        return view('list', ['members'=>$data]);
+    function dbOperations(){
+
+        return DB::table('members')
+        ->where('Address', 'Bangem')->get();
+
     }
 }

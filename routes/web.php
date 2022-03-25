@@ -20,4 +20,4 @@ Use App\Http\Controllers\MembersController;
 //Route::view('list', 'list');
 
 
-Route::get('list', [MembersController::class,'show']);
+Route::get('list', [MembersController::class,'dbOperations']);
