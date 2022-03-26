@@ -18,6 +18,7 @@ Use App\Http\Controllers\MembersController;
 
 
 //Route::view('list', 'list');
+//Route::view('/', 'home');
 
 
 Route::get('list', [MembersController::class,'dbOperations']);
